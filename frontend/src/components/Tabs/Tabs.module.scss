@@ -1,0 +1,26 @@
+.wrap {
+  border: 1px solid #ebeef0;
+}
+.list {
+  border-bottom: 1px solid #ebeef0;
+  margin: 0 0 10px;
+  padding: 0;
+  .react-tabs__tab {
+    background-color: red;
+  }
+}
+.item {
+  outline: none;
+  display: inline-block;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.active {
+  background-color: #999999;
+  color: #fff;
+}

@@ -1,0 +1,12 @@
+.container {
+  max-width: calc(875px + 20px);
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.wrap {
+  display: flex;
+  gap: 10px;
+  > div {
+    width: 100%;
+  }
+}

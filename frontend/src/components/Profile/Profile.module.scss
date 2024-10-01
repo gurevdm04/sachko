@@ -1,0 +1,38 @@
+.wrap {
+  max-width: 225px;
+  display: flex;
+  align-items: center;
+  margin: 10px auto 20px auto;
+  padding: 12px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    background-color: #a3a3a3;
+  }
+}
+.img {
+  border-radius: 100%;
+  margin-right: 10px;
+}
+.name {
+  max-width: 120px;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+.menu {
+  width: 33px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  margin-left: auto;
+  transition: all 0.3s ease;
+  > svg {
+    font-size: 25px;
+  }
+}

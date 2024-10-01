@@ -1,0 +1,28 @@
+.wrap {
+  border: 1px solid #ebeef0;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+.img {
+  border-radius: 100px;
+  margin-right: 12px;
+  align-self: flex-start;
+}
+.header {
+  display: flex;
+  margin-bottom: 20px;
+  span {
+    align-self: flex-start;
+  }
+}
+.textarea {
+  height: auto;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon {
+  font-size: 30px;
+}
