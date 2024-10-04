@@ -32,9 +32,11 @@ export const PostList = () => {
               user={obj.user}
               isEditable={userData?._id === obj.user._id}
               imageUrl={obj.imageUrl}
+              viewsCount={obj.viewsCount}
             />
           )
         )}
+        {!isPostLoading && posts.items.length === 0 ? <>Постов нет :( </> : null}
       </div>
     </>
   );

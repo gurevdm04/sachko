@@ -3,9 +3,16 @@ import axios from "./../../axios";
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const { data } = await axios.get("/posts");
-  console.log(data);
   return data;
 });
+
+export const fetchPopularPosts = createAsyncThunk(
+  "posts/fetchPopularPosts",
+  async () => {
+    const { data } = await axios.get("/posts/popular");
+    return data;
+  }
+);
 
 export const fetchRemovePost = createAsyncThunk(
   "posts/fetchRemovePost",
@@ -22,6 +29,10 @@ interface PostsState {
     items: any[];
     status: StatusType;
   };
+  postsPopular: {
+    items: any[];
+    status: StatusType;
+  };
   tags: {
     items: any[];
     status: StatusType;
@@ -30,6 +41,10 @@ interface PostsState {
 
 const initialState: PostsState = {
   posts: {
+    items: [],
+    status: "loading",
+  },
+  postsPopular: {
     items: [],
     status: "loading",
   },
@@ -50,14 +65,25 @@ export const postsSlice = createSlice({
       state.posts.status = "loading";
     });
     builder.addCase(fetchPosts.fulfilled, (state, action) => {
-      console.log("action", action);
-
       state.posts.items = action.payload;
       state.posts.status = "loaded";
     });
     builder.addCase(fetchPosts.rejected, (state) => {
       state.posts.items = [];
       state.posts.status = "error";
+    });
+    // fetchPopularPosts
+    builder.addCase(fetchPopularPosts.pending, (state) => {
+      state.postsPopular.items = [];
+      state.postsPopular.status = "loading";
+    });
+    builder.addCase(fetchPopularPosts.fulfilled, (state, action) => {
+      state.postsPopular.items = action.payload;
+      state.postsPopular.status = "loaded";
+    });
+    builder.addCase(fetchPopularPosts.rejected, (state) => {
+      state.postsPopular.items = [];
+      state.postsPopular.status = "error";
     });
     // fetchRemovePost
     builder.addCase(fetchRemovePost.pending, (state, action) => {

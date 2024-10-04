@@ -3,6 +3,7 @@ import "easymde/dist/easymde.min.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import axios from "./../../axios";
 import { useNavigate, useParams } from "react-router-dom";
+import style from './WritePost.module.scss'
 
 export const WritePost = () => {
   const { id } = useParams();
@@ -23,7 +24,6 @@ export const WritePost = () => {
       const file = event.target.files[0];
       formData.append("image", file);
       const { data } = await axios.post("/upload", formData);
-      console.log(data);
       setImageUrl(data.url);
     } catch (err) {
       console.warn(err);
@@ -63,13 +63,9 @@ export const WritePost = () => {
   };
 
   useEffect(() => {
-    console.log(id);
-
     if (id) {
       try {
         axios.get(`/posts/${id}`).then(({ data }: any) => {
-          console.log(data);
-
           setTitle(data.title);
           setText(data.text);
           setImageUrl(data.imageUrl);
@@ -107,7 +103,7 @@ export const WritePost = () => {
       {imageUrl && (
         <>
           <br />
-          <img src={`http://localhost:4444${imageUrl}`} alt="" />
+          <img className={style.img} src={`http://localhost:4444${imageUrl}`} alt="" />
           <br />
           <button onClick={onClickRemoveImage}>удолить</button>
         </>

@@ -1,11 +1,13 @@
-import { FaHeart } from "react-icons/fa";
-import { FaComment } from "react-icons/fa";
-
 import style from "./PostCard.module.scss";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { useAppDispatch } from "../../redux/hooks";
 import { fetchRemovePost } from "../../redux/slices/posts";
+import { formatDate } from "../../utils";
+import { FaPen } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
+import { FaEye } from "react-icons/fa";
+import defaulrProfile from "./../../assets/images/default-profile.jpg";
 
 type PostCard = {
   id: string;
@@ -15,6 +17,7 @@ type PostCard = {
   user: any;
   isEditable: boolean;
   imageUrl: string;
+  viewsCount: number;
 };
 
 export const PostCard: React.FC<PostCard> = ({
@@ -25,16 +28,17 @@ export const PostCard: React.FC<PostCard> = ({
   id,
   isEditable,
   imageUrl,
+  viewsCount,
 }) => {
   const dispatch = useAppDispatch();
 
   const onClickRemove = () => {
     if (window.confirm("Вы увернены что хотите удалить статью?")) {
-      console.log(id);
-
       dispatch(fetchRemovePost(id));
     }
   };
+
+  console.log(formatDate(updatedAt));
 
   return (
     <>
@@ -42,10 +46,10 @@ export const PostCard: React.FC<PostCard> = ({
         <div>
           <img className={style.imgProfile} src={user.avatarUrl} alt="" />
         </div>
-        <div>
+        <div className={style.header}>
           <div className={style.title}>
-            {user.fullName} - <span>{updatedAt}</span>{" "}
-            {isEditable && (
+            {user.fullName} - <span>{formatDate(updatedAt)}</span>
+            {/* {isEditable && (
               <>
                 - удалить статью{" "}
                 <span>
@@ -53,8 +57,19 @@ export const PostCard: React.FC<PostCard> = ({
                 </span>
                 - редактировать статью <Link to={`/post/${id}/edit`}>тык</Link>
               </>
-            )}
+            )} */}
           </div>
+          {isEditable && (
+            <div className={style.controlPost}>
+              <Link className={style.deleteLink} to={`/post/${id}/edit`}>
+                <FaPen className={style.edit} />
+              </Link>
+              <MdDeleteForever
+                onClick={onClickRemove}
+                className={style.delete}
+              />
+            </div>
+          )}
           <Link to={`/post/${id}`}>id - {id}</Link>
           <p className={style.text}>{title}</p>
           <ReactMarkdown children={text} />
@@ -65,10 +80,7 @@ export const PostCard: React.FC<PostCard> = ({
           />
           <div className={style.statistic}>
             <div>
-              <FaHeart className={style.icon} /> <span>7083</span>
-            </div>
-            <div>
-              <FaComment className={style.icon} /> <span>7083</span>
+              <FaEye className={style.icon} /> <span>{viewsCount}</span>
             </div>
           </div>
         </div>

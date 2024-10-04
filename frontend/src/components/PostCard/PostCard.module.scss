@@ -33,6 +33,7 @@
   font-size: 20px;
 }
 .title {
+  max-width: 300px;
   font-weight: 700;
   font-size: 15px;
   span {
@@ -44,4 +45,38 @@
 .text {
   font-weight: 500;
   font-size: 15px;
+}
+.header {
+  width: 100%;
+  position: relative;
+}
+.controlPost {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.edit {
+  color: #b1b1b1;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    color: rgb(15, 104, 177);
+  }
+}
+.delete {
+  color: #b1b1b1;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    color: red;
+  }
+}
+.deleteLink {
+  color: inherit;
 }
