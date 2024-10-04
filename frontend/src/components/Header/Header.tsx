@@ -8,7 +8,6 @@ const text = {
   [Path.YourPosts]: "You Posts",
   [Path.Profile]: "Profile",
 };
-console.log(text);
 
 export const Header = () => {
   let path: string | undefined = useLocation().pathname;

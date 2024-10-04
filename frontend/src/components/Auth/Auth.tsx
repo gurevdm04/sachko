@@ -1,5 +1,7 @@
 import { useState } from "react";
 import style from "./Auth.module.scss";
+import { Login } from "./Login/Login";
+import { Registration } from "./Registration/Registration";
 
 export const Auth = () => {
   const [isLogin, setIsLogin] = useState();
@@ -17,70 +19,26 @@ export const Auth = () => {
         {status === "register" && "Register"}
       </h2>
 
-      <form className={style.form} action="">
-        {status === "login" && (
-          <>
-            <input
-              required
-              className={style.input}
-              type="text"
-              name="name"
-              placeholder="your login"
-            />
-            <input
-              required
-              className={style.input}
-              type="password"
-              name="pass"
-              placeholder="****"
-            />
-          </>
-        )}
+      {status === "login" && <Login />}
 
-        {status === "register" && (
-          <>
-            <input
-              required
-              className={style.input}
-              type="text"
-              name="name"
-              placeholder="your login"
-            />
-            <input
-              required
-              className={style.input}
-              type="password"
-              name="pass"
-              placeholder="password"
-            />
-            <input
-              required
-              className={style.input}
-              type="password"
-              name="pass"
-              placeholder="repeat password"
-            />
-          </>
-        )}
+      {status === "register" && <Registration />}
 
-        <button className={style.btn}>login</button>
-        {status === "login" && (
-          <p>
-            Don't you have an account?{" "}
-            <a onClick={handleStatus} href="#">
-              Register!
-            </a>
-          </p>
-        )}
-        {status === "register" && (
-          <p>
-            Do you have an account?{" "}
-            <a onClick={handleStatus} href="#">
-              Come in!
-            </a>
-          </p>
-        )}
-      </form>
+      {status === "login" && (
+        <p>
+          Don't you have an account?{" "}
+          <a onClick={handleStatus} href="#">
+            Register!
+          </a>
+        </p>
+      )}
+      {status === "register" && (
+        <p>
+          Do you have an account?{" "}
+          <a onClick={handleStatus} href="#">
+            Come in!
+          </a>
+        </p>
+      )}
     </div>
   );
 };

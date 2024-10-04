@@ -14,15 +14,19 @@ import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
 import { PopularPage } from "./pages/PopularPage/PopularPage";
 import { YouPostPage } from "./pages/YouPostPage/YouPostPage";
 import { useEffect } from "react";
+import { FullPostPage } from "./pages/FullPostPage/FullPostPage";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
+import { EditPostPage } from "./pages/EditPostPage/EditPostPage";
 
 function App() {
+  const dispatch = useAppDispatch();
+  const isAuth = useAppSelector(selectIsAuth);
+
   useEffect(() => {
-    fetch("http://localhost:3000/users")
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-      });
-  });
+    dispatch(fetchAuthMe());
+  }, []);
+
   return (
     <>
       <div className={style.container}>
@@ -35,6 +39,8 @@ function App() {
               <Route path={Path.Popular} element={<PopularPage />} />
               <Route path={Path.YourPosts} element={<YouPostPage />} />
               <Route path={Path.Profile} element={<ProfilePage />} />
+              <Route path={Path.FullPost} element={<FullPostPage />} />
+              <Route path={Path.EditPost} element={<WritePost />} />
             </Routes>
           </MainWrapper>
         </div>

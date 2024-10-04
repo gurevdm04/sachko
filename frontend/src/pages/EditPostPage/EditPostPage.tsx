@@ -1,14 +1,11 @@
-import SimpleMDE from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
+import React, { useCallback, useMemo, useRef, useState } from "react";
+import SimpleMdeReact from "react-simplemde-editor";
+import axios from "./../../axios";
+import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { selectIsAuth } from "../../redux/slices/auth";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import axios from "./../../axios";
-import { useNavigate, useParams } from "react-router-dom";
 
-export const WritePost = () => {
-  const { id } = useParams();
-
+export const EditPostPage = () => {
   const navigate = useNavigate();
 
   const isAuth = useAppSelector(selectIsAuth);
@@ -17,8 +14,6 @@ export const WritePost = () => {
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const inputFileRef = useRef<any>(null);
-
-  const isEditing = Boolean(id);
 
   const handleChangeFile = async (event: any) => {
     try {
@@ -52,37 +47,16 @@ export const WritePost = () => {
         text,
       };
 
-      const { data } = isEditing
-        ? await axios.patch(`/posts/${id}`, fields)
-        : await axios.post("/posts", fields);
+      const { data } = await axios.post("/posts", fields);
 
-      const _id = isEditing ? id : data._id;
+      const id = data._id;
 
-      navigate(`/post/${_id}`);
+      navigate(`/post/${id}`);
     } catch (err) {
       console.warn(err);
       alert("Ошибка при создании статьи");
     }
   };
-
-  useEffect(() => {
-    console.log(id);
-
-    if (id) {
-      try {
-        axios.get(`/posts/${id}`).then(({ data }: any) => {
-          console.log(data);
-
-          setTitle(data.title);
-          setText(data.text);
-          setImageUrl(data.imageUrl);
-        });
-      } catch (err) {
-        alert("Ошибка при получении статьи");
-        console.warn(err);
-      }
-    }
-  }, []);
 
   const options = useMemo(
     () => ({
@@ -119,12 +93,10 @@ export const WritePost = () => {
         <input value={title} onChange={(e) => setTitle(e.target.value)} />
       </h1>
 
-      <SimpleMDE value={text} onChange={onChange} options={options} />
+      <SimpleMdeReact value={text} onChange={onChange} options={options} />
 
       <br />
-      <button onClick={onSubmit}>
-        {isEditing ? "Сохранить" : "опубликовать"}
-      </button>
+      <button onClick={onSubmit}>опубликовать</button>
     </>
   );
 };

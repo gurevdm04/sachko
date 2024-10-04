@@ -3,4 +3,6 @@ export enum Path {
   Popular = "/popular",
   YourPosts = "/youposts",
   Profile = "/profile",
+  FullPost = "/post/:id",
+  EditPost = "/post/:id/edit",
 }

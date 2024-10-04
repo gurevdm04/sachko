@@ -6,7 +6,6 @@ export const Sidebar = () => {
   return (
     <div className={style.wrap}>
       <Navmenu />
-      {/* <Profile /> */}
     </div>
   );
 };
