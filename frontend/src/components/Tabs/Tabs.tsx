@@ -1,6 +1,6 @@
 import { Tab, Tabs as TabsWrap, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { PostCard } from "../PostCard/PostCard";
+// import { PostCard } from "../PostCard/PostCard";
 import style from "./Tabs.module.scss";
 
 export const Tabs = () => {
@@ -16,12 +16,12 @@ export const Tabs = () => {
       </TabList>
 
       <TabPanel>
-        <PostCard />
-        <PostCard />
-        <PostCard />
+        {/* <PostCard /> */}
+        {/* <PostCard /> */}
+        {/* <PostCard /> */}
       </TabPanel>
       <TabPanel>
-        <PostCard />
+        {/* <PostCard /> */}
       </TabPanel>
     </TabsWrap>
   );

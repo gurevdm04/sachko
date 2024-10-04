@@ -1,11 +1,10 @@
 import { FiMoreHorizontal } from "react-icons/fi";
 
 import style from "./Profile.module.scss";
-import { logout, selectIsAuth } from "../../redux/slices/auth";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { logout } from "../../redux/slices/auth";
+import { useAppDispatch } from "../../redux/hooks";
 
 export const Profile = () => {
-  const isAuth = useAppSelector(selectIsAuth);
   const dispatch = useAppDispatch();
 
   const onClickLogout = () => {

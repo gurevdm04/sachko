@@ -4,7 +4,6 @@ import { Login } from "./Login/Login";
 import { Registration } from "./Registration/Registration";
 
 export const Auth = () => {
-  const [isLogin, setIsLogin] = useState();
   const [status, setStatus] = useState<"login" | "register">("login");
 
   const handleStatus = () => {

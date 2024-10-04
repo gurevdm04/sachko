@@ -22,7 +22,12 @@ export const fetchAuthMe = createAsyncThunk("auth/fetchAuthMe", async () => {
   return data;
 });
 
-const initialState = {
+interface AuthStaet {
+  data: null | any;
+  status: "loading" | "loaded" | "error";
+}
+
+const initialState: AuthStaet = {
   data: null,
   status: "loading",
 };
@@ -33,7 +38,6 @@ export const authSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.data = null;
-      // state.status = "loaded";
     },
   },
   extraReducers(builder) {

@@ -4,8 +4,7 @@ import axios from "./../../axios";
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const { data } = await axios.get("/posts");
   console.log(data);
-  
-  return data.reverse();;
+  return data;
 });
 
 export const fetchRemovePost = createAsyncThunk(
@@ -16,7 +15,20 @@ export const fetchRemovePost = createAsyncThunk(
   }
 );
 
-const initialState = {
+type StatusType = "loading" | "loaded" | "error";
+
+interface PostsState {
+  posts: {
+    items: any[];
+    status: StatusType;
+  };
+  tags: {
+    items: any[];
+    status: StatusType;
+  };
+}
+
+const initialState: PostsState = {
   posts: {
     items: [],
     status: "loading",

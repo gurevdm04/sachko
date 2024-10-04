@@ -2,7 +2,6 @@ import { FaHeart } from "react-icons/fa";
 import { FaComment } from "react-icons/fa";
 
 import style from "./PostCard.module.scss";
-import ContentLoader from "react-content-loader";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { useAppDispatch } from "../../redux/hooks";

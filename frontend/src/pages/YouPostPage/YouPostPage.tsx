@@ -1,7 +1,5 @@
-import React from "react";
-import { PostList } from "../../components/PostList/PostList";
 import { WritePost } from "../../components/WritePost/WritePost";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { selectIsAuth } from "../../redux/slices/auth";
 import { Navigate } from "react-router-dom";
 

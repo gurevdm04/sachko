@@ -1,7 +1,5 @@
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
-import { useAppSelector } from "../../redux/hooks";
-import { selectIsAuth } from "../../redux/slices/auth";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import axios from "./../../axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,8 +9,7 @@ export const WritePost = () => {
 
   const navigate = useNavigate();
 
-  const isAuth = useAppSelector(selectIsAuth);
-  const [isLoading, setIsLoading] = useState(false);
+  const [_isLoading, setIsLoading] = useState(false);
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -89,11 +86,12 @@ export const WritePost = () => {
       spellChecker: false,
       maxHeight: "400px",
       autofocus: true,
-      placeholder: "Введите текстююю",
+      placeholder: "Введите текст",
       status: false,
       autosave: {
         enabled: true,
-        deley: 1000,
+        delay: 1000,
+        uniqueId: "my-unique-id",
       },
     }),
     []

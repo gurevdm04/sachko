@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { Profile } from "../../components/Profile/Profile";
+import  { useState } from "react";
 import { ProfileData } from "../../components/ProfileData/ProfileData";
 import { Tabs } from "../../components/Tabs/Tabs";
 import { Auth } from "../../components/Auth/Auth";
 
 export const ProfilePage = () => {
-  const [userRegisted, setUserRegisted] = useState(false);
+  const [userRegisted, _setUserRegisted] = useState(false);
 
   return (
     <>

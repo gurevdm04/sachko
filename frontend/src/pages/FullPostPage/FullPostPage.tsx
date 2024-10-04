@@ -1,5 +1,5 @@
 import axios from "./../../axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
@@ -17,6 +17,8 @@ export const FullPostPage = () => {
         setIsLoading(false);
       })
       .catch((err) => {
+        console.log(err);
+        
         setIsLoading(false);
       });
   }, []);

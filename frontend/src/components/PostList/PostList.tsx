@@ -1,17 +1,14 @@
 import style from "./PostList.module.scss";
 import { PostCard } from "../PostCard/PostCard";
 import { useEffect } from "react";
-import axios from "./../../axios";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPosts } from "../../redux/slices/posts";
 import ContentLoader from "react-content-loader";
-import { Route, Routes } from "react-router-dom";
-import { FullPostPage } from "../../pages/FullPostPage/FullPostPage";
 
 export const PostList = () => {
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.auth.data);
-  const { posts, tags } = useAppSelector((state) => state.posts);
+  const { posts } = useAppSelector((state) => state.posts);
 
   const isPostLoading = posts.status === "loading";
 

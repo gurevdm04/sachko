@@ -3,7 +3,6 @@ import style from "./../Auth.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { fetchAuth, selectIsAuth } from "../../../redux/slices/auth";
 import { Navigate } from "react-router-dom";
-import { useEffect } from "react";
 
 export const Login = () => {
   const isAuth = useAppSelector(selectIsAuth);
@@ -12,7 +11,7 @@ export const Login = () => {
   const {
     register,
     handleSubmit,
-    setError,
+    // setError,
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {

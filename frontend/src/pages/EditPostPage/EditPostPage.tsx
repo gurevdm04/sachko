@@ -1,15 +1,15 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import SimpleMdeReact from "react-simplemde-editor";
 import axios from "./../../axios";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../../redux/hooks";
-import { selectIsAuth } from "../../redux/slices/auth";
+// import { useAppSelector } from "../../redux/hooks";
+// import { selectIsAuth } from "../../redux/slices/auth";
 
 export const EditPostPage = () => {
   const navigate = useNavigate();
 
-  const isAuth = useAppSelector(selectIsAuth);
-  const [isLoading, setIsLoading] = useState(false);
+  // const isAuth = useAppSelector(selectIsAuth);
+  const [_isLoading, setIsLoading] = useState(false);
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -63,11 +63,12 @@ export const EditPostPage = () => {
       spellChecker: false,
       maxHeight: "400px",
       autofocus: true,
-      placeholder: "Введите текстююю",
+      placeholder: "Введите текст",
       status: false,
       autosave: {
         enabled: true,
-        deley: 1000,
+        delay: 1000,
+        uniqueId: "my-unique-id",
       },
     }),
     []

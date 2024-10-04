@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./Navitem.module.scss";
 import { IconType } from "react-icons";
 

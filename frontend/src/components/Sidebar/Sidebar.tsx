@@ -1,5 +1,4 @@
 import { Navmenu } from "../Navmenu/Navmenu";
-import { Profile } from "../Profile/Profile";
 import style from "./Sidebar.module.scss";
 
 export const Sidebar = () => {
