@@ -38,8 +38,6 @@ export const PostCard: React.FC<PostCard> = ({
     }
   };
 
-  console.log(formatDate(updatedAt));
-
   return (
     <>
       <Link to={`/post/${id}`} className={style.wrap}>

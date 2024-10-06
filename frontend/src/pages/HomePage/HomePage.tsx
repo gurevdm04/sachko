@@ -7,7 +7,6 @@ export const HomePage = () => {
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.auth.data);
   const { posts } = useAppSelector((state) => state.posts);
-  console.log(posts);
 
   const isPostLoading = posts.status === "loading";
 

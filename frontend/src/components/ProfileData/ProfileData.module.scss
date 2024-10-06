@@ -25,3 +25,25 @@
   display: flex;
   gap: 10px;
 }
+.editBtn {
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  :hover {
+    color: #0000ff;
+  }
+}
+.exitBtn {
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  :hover {
+    color: #ff0000;
+  }
+}

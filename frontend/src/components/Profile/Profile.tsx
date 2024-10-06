@@ -2,25 +2,17 @@ import { FiMoreHorizontal } from "react-icons/fi";
 
 import style from "./Profile.module.scss";
 import { logout } from "../../redux/slices/auth";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { Path } from "../../constants/constants";
+import { Link } from "react-router-dom";
 
 export const Profile = () => {
-  const dispatch = useAppDispatch();
-
-  const onClickLogout = () => {
-    if (window.confirm("Вы увернены что хотите выйти?")) {
-      dispatch(logout());
-      window.localStorage.removeItem("token");
-    }
-  };
+  const { fullName, avatarUrl } = useAppSelector((state) => state.auth.data);
 
   return (
-    <div onClick={onClickLogout} className={style.wrap}>
-      <img className={style.img} src="https://via.placeholder.com/40" alt="" />
-      <div className={style.name}>@afonsointe</div>
-      <div className={style.menu}>
-        <FiMoreHorizontal />
-      </div>
-    </div>
+    <Link className={style.wrap} to={Path.Profile}>
+      <img className={style.img} src={avatarUrl} alt="" />
+      <div className={style.name}>{fullName}</div>
+    </Link>
   );
 };
