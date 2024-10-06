@@ -1,8 +1,30 @@
 import PostModel from "../models/Post.js";
+import getUserIdFromToken from "../utils/getUserIdFromToken.js";
+import jwt from 'jsonwebtoken';
 
 export const getAll = async (req, res) => {
   try {
-    const posts = await PostModel.find().populate("user").exec();
+    const posts = await PostModel.find()
+      .populate("user")
+      .sort({ createdAt: -1 })
+      .exec();
+
+    res.json(posts);
+  } catch (err) {
+    console.log(err);
+
+    res.status(500).json({
+      message: "Не удалось ролучить статьи",
+    });
+  }
+};
+
+export const getPopular = async (req, res) => {
+  try {
+    const posts = await PostModel.find()
+      .populate("user")
+      .sort({ viewsCount: -1 })
+      .exec();
 
     res.json(posts);
   } catch (err) {
@@ -88,7 +110,27 @@ export const remove = async (req, res) => {
 
 export const update = async (req, res) => {
   try {
+    const secretKey = "secret123";
+
+    const userUpdateId = jwt.verify(req.headers.authorization, secretKey)._id;
+
     const postId = req.params.id;
+
+    const post = await PostModel.findById(postId);
+
+    if (!post) {
+      return res.status(404).json({
+        message: "Пост не найден",
+      });
+    }
+
+    const userOwnerPostId = post.user.toString();
+
+    if (userUpdateId !== userOwnerPostId) {
+      return res.status(403).json({
+        message: "Нет прав на обновление этого поста",
+      });
+    }
 
     await PostModel.updateOne(
       { _id: postId },
