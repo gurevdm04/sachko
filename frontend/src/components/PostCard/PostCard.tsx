@@ -42,22 +42,13 @@ export const PostCard: React.FC<PostCard> = ({
 
   return (
     <>
-      <div className={style.wrap}>
+      <Link to={`/post/${id}`} className={style.wrap}>
         <div>
           <img className={style.imgProfile} src={user.avatarUrl} alt="" />
         </div>
         <div className={style.header}>
           <div className={style.title}>
             {user.fullName} - <span>{formatDate(updatedAt)}</span>
-            {/* {isEditable && (
-              <>
-                - удалить статью{" "}
-                <span>
-                  <button onClick={onClickRemove}>+</button>
-                </span>
-                - редактировать статью <Link to={`/post/${id}/edit`}>тык</Link>
-              </>
-            )} */}
           </div>
           {isEditable && (
             <div className={style.controlPost}>
@@ -84,7 +75,7 @@ export const PostCard: React.FC<PostCard> = ({
             </div>
           </div>
         </div>
-      </div>
+      </Link>
       <hr className={style.hr} />
     </>
   );

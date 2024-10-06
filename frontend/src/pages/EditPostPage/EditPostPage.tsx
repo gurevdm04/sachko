@@ -15,6 +15,7 @@ export const EditPostPage = () => {
   const [imageUrl, setImageUrl] = useState("");
   const inputFileRef = useRef<any>(null);
 
+
   const handleChangeFile = async (event: any) => {
     try {
       const formData = new FormData();

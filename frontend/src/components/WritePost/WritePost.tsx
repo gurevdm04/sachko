@@ -10,6 +10,7 @@ export const WritePost = () => {
 
   const navigate = useNavigate();
 
+
   const [_isLoading, setIsLoading] = useState(false);
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
@@ -61,6 +62,7 @@ export const WritePost = () => {
       alert("Ошибка при создании статьи");
     }
   };
+  
 
   useEffect(() => {
     if (id) {

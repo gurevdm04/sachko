@@ -7,6 +7,7 @@ import { Path } from "../../constants/constants";
 import { useAppSelector } from "../../redux/hooks";
 import { selectIsAuth } from "../../redux/slices/auth";
 import { Profile } from "../Profile/Profile";
+import { FaFireAlt } from "react-icons/fa";
 
 export const Navmenu = () => {
   const isAuth = useAppSelector(selectIsAuth);
@@ -14,6 +15,7 @@ export const Navmenu = () => {
   return (
     <ul className={style.menu}>
       <Navitem text="Home" path={Path.Home} Icon={GoHomeFill} />
+      <Navitem text="Popular" path={Path.Popular} Icon={FaFireAlt} />
       <Navitem
         text="Your posts"
         path={Path.YourPosts}
