@@ -3,6 +3,8 @@ import { IoMdExit } from "react-icons/io";
 import { GoPencil } from "react-icons/go";
 import { logout } from "../../redux/slices/auth";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { Link } from "react-router-dom";
+import { Path } from "../../constants/constants";
 
 export const ProfileData = () => {
   const dispatch = useAppDispatch();
@@ -24,9 +26,9 @@ export const ProfileData = () => {
       <h2 className={style.title}>{fullName}</h2>
       <p className={style.text}>{email}</p>
       <div className={style.exit}>
-        <button className={style.editBtn}>
+        <Link to={Path.EditProfile} className={style.editBtn}>
           <GoPencil />
-        </button>
+        </Link>
         <button className={style.exitBtn}>
           <IoMdExit onClick={onClickLogout} />
         </button>

@@ -5,4 +5,5 @@ export enum Path {
   Profile = "/profile",
   FullPost = "/post/:id",
   EditPost = "/post/:id/edit",
+  EditProfile = "/profile/edit",
 }

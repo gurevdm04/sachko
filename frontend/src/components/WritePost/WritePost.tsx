@@ -3,13 +3,12 @@ import "easymde/dist/easymde.min.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import axios from "./../../axios";
 import { useNavigate, useParams } from "react-router-dom";
-import style from './WritePost.module.scss'
+import style from "./WritePost.module.scss";
 
 export const WritePost = () => {
   const { id } = useParams();
 
   const navigate = useNavigate();
-
 
   const [_isLoading, setIsLoading] = useState(false);
   const [text, setText] = useState("");
@@ -62,7 +61,6 @@ export const WritePost = () => {
       alert("Ошибка при создании статьи");
     }
   };
-  
 
   useEffect(() => {
     if (id) {
@@ -105,7 +103,11 @@ export const WritePost = () => {
       {imageUrl && (
         <>
           <br />
-          <img className={style.img} src={`http://localhost:4444${imageUrl}`} alt="" />
+          <img
+            className={style.img}
+            src={`http://localhost:4444${imageUrl}`}
+            alt=""
+          />
           <br />
           <button onClick={onClickRemoveImage}>удолить</button>
         </>

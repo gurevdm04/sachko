@@ -1,6 +1,6 @@
 import PostModel from "../models/Post.js";
 import getUserIdFromToken from "../utils/getUserIdFromToken.js";
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
 export const getAll = async (req, res) => {
   try {
@@ -64,9 +64,17 @@ export const getOne = async (req, res) => {
 
 export const create = async (req, res) => {
   try {
+    const shortText =
+      req.body.text.length > 200
+        ? req.body.text.substring(0, 200) + " ..."
+        : req.body.text;
+        
+    console.log(req.body.imageUrl);
+
     const doc = new PostModel({
       title: req.body.title,
       text: req.body.text,
+      shortText,
       imageUrl: req.body.imageUrl,
       tags: req.body.tags,
       user: req.userId,

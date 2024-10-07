@@ -19,6 +19,10 @@ export const registerValidation = [
 export const postCreateValidation = [
   body("title", "Введите заголовок статьи").isLength({ min: 3 }).isString(),
   body("text", "Введите текст статьи").isLength({ min: 3 }).isString(),
-  body("tags", "Неверный формат тегов (укажите масив)").optional().isString(),
   body("imageUrl", "Неверная ссылка на изображение").optional().isString(),
+];
+
+export const authUpdateValidation = [
+  body("fullName", "Укажите имя").isLength({ min: 3 }).isString(),
+  body("avatarUrl", "Неверная ссылка на аватарку"),
 ];

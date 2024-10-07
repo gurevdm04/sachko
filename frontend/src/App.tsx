@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { FullPostPage } from "./pages/FullPostPage/FullPostPage";
 import { useAppDispatch } from "./redux/hooks";
 import { fetchAuthMe } from "./redux/slices/auth";
+import { ProfileEdit } from "./components/ProfileEdit/ProfileEdit";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -35,6 +36,7 @@ function App() {
               <Route path={Path.Profile} element={<ProfilePage />} />
               <Route path={Path.FullPost} element={<FullPostPage />} />
               <Route path={Path.EditPost} element={<WritePost />} />
+              <Route path={Path.EditProfile} element={<ProfileEdit />} />
             </Routes>
           </MainWrapper>
         </div>

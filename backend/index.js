@@ -8,11 +8,13 @@ import {
   registerValidation,
   loginValidation,
   postCreateValidation,
+  authUpdateValidation,
 } from "./validations.js";
 
 import { checkAuth, handleValidationErrors } from "./utils/index.js";
 
 import { UserController, PostController } from "./controllers/index.js";
+import { PATH } from "./constants/constants.js";
 
 mongoose
   .connect(
@@ -62,6 +64,13 @@ app.post(
   UserController.register
 );
 app.get("/auth/me", checkAuth, UserController.getMe);
+app.patch(
+  "/auth",
+  checkAuth,
+  authUpdateValidation,
+  handleValidationErrors,
+  UserController.updateAuth
+);
 
 app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
   res.json({

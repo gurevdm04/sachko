@@ -27,7 +27,7 @@ export const PostList: React.FC<PostListProps> = ({
                 key={obj._id}
                 id={obj._id}
                 title={obj.title}
-                text={obj.text}
+                text={obj.shortText}
                 updatedAt={obj.updatedAt}
                 user={obj.user}
                 isEditable={userData?._id === obj.user._id}
