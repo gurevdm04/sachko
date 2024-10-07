@@ -10,7 +10,7 @@ import { Profile } from "../Profile/Profile";
 import { FaFireAlt } from "react-icons/fa";
 import { IoMdPhotos } from "react-icons/io";
 
-export const Navmenu = () => {
+export const Navmenu: React.FC<any> = ({ toggle }) => {
   const isAuth = useAppSelector(selectIsAuth);
 
   return (

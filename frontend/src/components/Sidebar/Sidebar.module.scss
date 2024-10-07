@@ -1,10 +1,40 @@
 .wrap {
   max-width: 275px;
   margin-top: 10px;
-
   position: sticky;
   top: 10px;
   z-index: 10;
   max-height: 90vh;
   overflow-y: auto;
+  overflow: visible;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    background-color: #000000;
+    margin: 0;
+    top: 0;
+    left: 0;
+    color: #fff;
+    transform: translateX(-100%);
+    padding: 60px 20px;
+    max-height: 100vh;
+    height: 100vh;
+    z-index: 10000;
+  }
+}
+.hamb {
+  display: none;
+  font-size: 30px;
+  top: 10px;
+  right: -40px;
+  position: absolute;
+  color: #000;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.active {
+  transform: translateX(0);
 }

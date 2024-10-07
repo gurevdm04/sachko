@@ -80,7 +80,7 @@ export const WritePost = () => {
   const options = useMemo(
     () => ({
       spellChecker: false,
-      maxHeight: "400px",
+      maxHeight: "300px",
       autofocus: true,
       placeholder: "Введите текст",
       status: false,

@@ -13,6 +13,10 @@
   &:hover {
     background-color: rgb(223, 223, 223);
   }
+
+  @media (max-width: 768px) {
+    padding: 10px 5px;
+  }
 }
 .imgProfile {
   width: 50px;
@@ -56,11 +60,23 @@
     font-size: 15px;
     color: #5b7083;
   }
+
+  @media (max-width: 425px) {
+    font-size: 10px;
+    span {
+      font-size: 10px;
+    }
+  }
 }
 .text {
   font-weight: 500;
   font-size: 30px;
   margin: 10px 0;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    word-break: break-word;
+  }
 }
 .header {
   width: 100%;
