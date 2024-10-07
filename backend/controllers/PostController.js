@@ -36,6 +36,26 @@ export const getPopular = async (req, res) => {
   }
 };
 
+export const getPhoto = async (req, res) => {
+  try {
+    // Получаем все посты, у которых поле imageUrl существует и не является пустым
+    const postsWithPhotos = await PostModel.find({
+      imageUrl: { $exists: true, $ne: "" },
+    })
+      .populate("user")
+      .sort({ viewsCount: -1 })
+      .exec();
+
+    res.json(postsWithPhotos);
+  } catch (err) {
+    console.log(err);
+
+    res.status(500).json({
+      message: "Не удалось получить посты с фотографиями",
+    });
+  }
+};
+
 export const getOne = async (req, res) => {
   try {
     const postId = req.params.id;
@@ -68,7 +88,7 @@ export const create = async (req, res) => {
       req.body.text.length > 200
         ? req.body.text.substring(0, 200) + " ..."
         : req.body.text;
-        
+
     console.log(req.body.imageUrl);
 
     const doc = new PostModel({

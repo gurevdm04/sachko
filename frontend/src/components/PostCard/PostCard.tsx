@@ -7,7 +7,6 @@ import { formatDate } from "../../utils";
 import { FaPen } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
-import defaulrProfile from "./../../assets/images/default-profile.jpg";
 
 type PostCard = {
   id: string;

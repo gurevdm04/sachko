@@ -80,6 +80,7 @@ app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
 
 app.get("/posts", PostController.getAll);
 app.get("/posts/popular", PostController.getPopular);
+app.get("/posts/photo", PostController.getPhoto);
 app.get("/posts/:id", PostController.getOne);
 app.post(
   "/posts",

@@ -1,8 +1,7 @@
 import { FiMoreHorizontal } from "react-icons/fi";
 
 import style from "./Profile.module.scss";
-import { logout } from "../../redux/slices/auth";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { Path } from "../../constants/constants";
 import { Link } from "react-router-dom";
 
