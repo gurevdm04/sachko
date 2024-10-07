@@ -15,16 +15,18 @@ export const Navmenu = () => {
 
   return (
     <ul className={style.menu}>
-      <Navitem text="Home" path={Path.Home} Icon={GoHomeFill} />
-      <Navitem text="Popular" path={Path.Popular} Icon={FaFireAlt} />
-      <Navitem text="Photo posts" path={Path.PhotoPosts} Icon={IoMdPhotos} />
-      <Navitem
-        text="Your posts"
-        path={Path.YourPosts}
-        Icon={BsFillFileEarmarkPostFill}
-      />
+      <Navitem text="Домашняя" path={Path.Home} Icon={GoHomeFill} />
+      <Navitem text="Популярное" path={Path.Popular} Icon={FaFireAlt} />
+      <Navitem text="Посты с фото" path={Path.PhotoPosts} Icon={IoMdPhotos} />
+      {isAuth && (
+        <Navitem
+          text="Создать пост"
+          path={Path.YourPosts}
+          Icon={BsFillFileEarmarkPostFill}
+        />
+      )}
       {!isAuth && (
-        <Navitem text="Profile" path={Path.Profile} Icon={CgProfile} />
+        <Navitem text="Профиль" path={Path.Profile} Icon={CgProfile} />
       )}
 
       {isAuth && <Profile />}

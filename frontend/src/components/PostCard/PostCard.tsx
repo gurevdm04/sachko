@@ -58,10 +58,13 @@ export const PostCard: React.FC<PostCard> = ({
               />
             </div>
           )}
-          <Link to={`/post/${id}`}>id - {id}</Link>
           <p className={style.text}>{title}</p>
           <ReactMarkdown children={text} />
-          <img className={style.img} src={`http://localhost:4444${imageUrl}`} alt="" />
+          <img
+            className={style.img}
+            src={`http://localhost:4444${imageUrl}`}
+            alt=""
+          />
           <div className={style.statistic}>
             <div>
               <FaEye className={style.icon} /> <span>{viewsCount}</span>

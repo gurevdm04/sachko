@@ -13,7 +13,11 @@ import {
 
 import { checkAuth, handleValidationErrors } from "./utils/index.js";
 
-import { UserController, PostController } from "./controllers/index.js";
+import {
+  UserController,
+  PostController,
+  CommentController,
+} from "./controllers/index.js";
 import { PATH } from "./constants/constants.js";
 
 mongoose
@@ -51,6 +55,7 @@ app.get("/", (req, res) => {
   res.send("hi world");
 });
 
+// AUTH
 app.post(
   "/auth/login",
   loginValidation,
@@ -72,12 +77,14 @@ app.patch(
   UserController.updateAuth
 );
 
+// UPLOAD
 app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
   res.json({
     url: `/uploads/${req.file.originalname}`,
   });
 });
 
+// POSTS
 app.get("/posts", PostController.getAll);
 app.get("/posts/popular", PostController.getPopular);
 app.get("/posts/photo", PostController.getPhoto);
@@ -97,6 +104,10 @@ app.patch(
   handleValidationErrors,
   PostController.update
 );
+
+// COMMENTS
+app.get("/comments/:postId", CommentController.getCommentsByPost);
+app.post("/comments", checkAuth, CommentController.addComment);
 
 app.listen(4444, (err) => {
   if (err) {
