@@ -36,12 +36,11 @@ const initialState: AuthStaet = {
 export const commentsSlice = createSlice({
   name: "comments",
   initialState,
-  reducers: {
-    addComment: (state, action) => {},
-  },
+  reducers: {},
   extraReducers(builder) {
     // fetchAuth
     builder.addCase(fetchComments.pending, (state) => {
+      state.data = [];
       state.status = "loading";
     });
     builder.addCase(fetchComments.fulfilled, (state, action) => {

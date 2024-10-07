@@ -14,18 +14,22 @@ const CommentsList = ({ postId }: { postId: any }) => {
   }, []);
 
   return (
-    <div className={style.wrap}>
-      {comments.map((comment: any) => (
-        <div className={style.commentWrap} key={comment._id}>
+    <>
+      {comments.length !== 0 && (
+        <div className={style.wrap}>
+          {comments.map((comment: any) => (
+            <div className={style.commentWrap} key={comment._id}>
+              <hr />
+              <small className={style.author}>
+                {comment.user.fullName} говорит:
+              </small>
+              <p className={style.text}>{comment.text}</p>
+            </div>
+          ))}
           <hr />
-          <small className={style.author}>
-            {comment.user.fullName} говорит:
-          </small>
-          <p className={style.text}>{comment.text}</p>
         </div>
-      ))}
-      <hr />
-    </div>
+      )}
+    </>
   );
 };
 

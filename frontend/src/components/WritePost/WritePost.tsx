@@ -95,7 +95,7 @@ export const WritePost = () => {
 
   return (
     <>
-      <button onClick={() => inputFileRef.current.click()}>
+      <button className={style.btn} onClick={() => inputFileRef.current.click()}>
         Загрузить превью
       </button>
       <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden />
@@ -114,14 +114,18 @@ export const WritePost = () => {
       )}
 
       <h1>
-        <input value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input
+          className={style.input}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </h1>
 
       <SimpleMDE value={text} onChange={onChange} options={options} />
 
       <br />
-      <button onClick={onSubmit}>
-        {isEditing ? "Сохранить" : "опубликовать"}
+      <button className={style.btn} onClick={onSubmit}>
+        {isEditing ? "Сохранить" : "Опубликовать"}
       </button>
     </>
   );

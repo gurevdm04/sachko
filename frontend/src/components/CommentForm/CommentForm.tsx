@@ -19,6 +19,7 @@ const CommentForm = ({ postId }: { postId: any }) => {
         })
         .finally(() => {
           dispatch(fetchComments(postId));
+          setText("");
         });
     } catch (err) {
       console.error("Ошибка при добавлении комментария:", err);

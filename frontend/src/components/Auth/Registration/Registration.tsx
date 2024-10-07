@@ -15,9 +15,9 @@ export const Registration = () => {
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
-      fullName: "Вася Пупкин",
-      email: "vasia12@test.ru",
-      password: "1234",
+      fullName: "",
+      email: "",
+      password: "",
     },
     mode: "onChange",
   });
@@ -42,7 +42,7 @@ export const Registration = () => {
       <input
         className={style.input}
         type="text"
-        placeholder="your login"
+        placeholder="Ваше имя"
         {...register("fullName", { required: "Укажите полное имя" })}
       />
       {errors.fullName?.message ? <p>{errors.fullName?.message}</p> : null}
@@ -50,7 +50,7 @@ export const Registration = () => {
       <input
         className={style.input}
         type="email"
-        placeholder="your login"
+        placeholder="Ваша почта"
         {...register("email", { required: "Укажите почту" })}
       />
       {errors.email?.message ? <p>{errors.email?.message}</p> : null}
@@ -58,7 +58,7 @@ export const Registration = () => {
       <input
         className={style.input}
         type="password"
-        placeholder="****"
+        placeholder="***"
         {...register("password", { required: "Введите пароль", min: 5 })}
       />
       {errors.password?.message ? <p>{errors.password?.message}</p> : null}

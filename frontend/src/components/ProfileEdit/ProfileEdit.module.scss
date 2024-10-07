@@ -5,6 +5,12 @@
 }
 .btns {
   margin-bottom: 15px;
+  display: flex;
+  gap: 20px;
+}
+.btn {
+  padding: 10px;
+  border-radius: 7px;
 }
 .img {
   object-fit: cover;
@@ -17,4 +23,14 @@
 }
 .submit {
   display: block;
+}
+.wrap {
+  position: relative;
+}
+.goback {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+  cursor: pointer;
 }

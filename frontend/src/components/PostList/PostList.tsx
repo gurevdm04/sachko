@@ -24,6 +24,7 @@ export const PostList: React.FC<PostListProps> = ({
               <Loader key={index} />
             ) : (
               <PostCard
+                countComment={obj.comments.length}
                 key={obj._id}
                 id={obj._id}
                 title={obj.title}

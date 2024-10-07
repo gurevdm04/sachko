@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import style from "./ProfileEdit.module.scss";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchAuthMe } from "../../redux/slices/auth";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
 
 export const ProfileEdit = () => {
   const [name, setName] = useState("");
@@ -27,6 +28,9 @@ export const ProfileEdit = () => {
   const { id } = useParams();
 
   const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
 
   const [imageUrl, setImageUrl] = useState("");
   const inputFileRef = useRef<any>(null);
@@ -92,6 +96,9 @@ export const ProfileEdit = () => {
   return (
     <>
       <div className={style.wrap}>
+        <div className={style.goback}>
+          <IoArrowBackCircleSharp onClick={goBack} />
+        </div>
         <img
           className={style.img}
           src={imageUrl ? "http://localhost:4444" + imageUrl : avatarUrl}
@@ -105,10 +112,15 @@ export const ProfileEdit = () => {
         />
 
         <div className={style.btns}>
-          <button onClick={() => inputFileRef.current.click()}>
+          <button
+            className={style.btn}
+            onClick={() => inputFileRef.current.click()}
+          >
             Загрузить превью
           </button>
-          <button onClick={onClickRemoveImage}>Удалить превью</button>
+          <button className={style.btn} onClick={onClickRemoveImage}>
+            Удалить превью
+          </button>
         </div>
         <input
           value={name}
@@ -116,7 +128,7 @@ export const ProfileEdit = () => {
           className={style.input}
           placeholder="Введите ваше имя"
         />
-        <button onClick={onSubmit} className={style.submit}>
+        <button onClick={onSubmit} className={`${style.submit} ${style.btn}`}>
           Обновить данные
         </button>
       </div>

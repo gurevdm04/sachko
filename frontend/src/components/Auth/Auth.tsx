@@ -6,7 +6,9 @@ import { Registration } from "./Registration/Registration";
 export const Auth = () => {
   const [status, setStatus] = useState<"login" | "register">("login");
 
-  const handleStatus = () => {
+  const handleStatus = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+
     if (status === "login") setStatus("register");
     if (status === "register") setStatus("login");
   };
@@ -14,8 +16,8 @@ export const Auth = () => {
   return (
     <div className={style.wrap}>
       <h2 className={style.title}>
-        {status === "login" && "Login"}
-        {status === "register" && "Register"}
+        {status === "login" && "Авторизация"}
+        {status === "register" && "Регистрация"}
       </h2>
 
       {status === "login" && <Login />}
@@ -24,17 +26,17 @@ export const Auth = () => {
 
       {status === "login" && (
         <p>
-          Don't you have an account?{" "}
+          У вас нет аккаунта?{" "}
           <a onClick={handleStatus} href="#">
-            Register!
+            Зарегистрируйтесь!
           </a>
         </p>
       )}
       {status === "register" && (
         <p>
-          Do you have an account?{" "}
+          У вас усть аккаунт?{" "}
           <a onClick={handleStatus} href="#">
-            Come in!
+            Войдите тут!
           </a>
         </p>
       )}

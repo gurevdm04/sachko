@@ -24,6 +24,13 @@ const PostSchema = new mongoose.Schema(
       require: true,
     },
     imageUrl: String,
+    // Новое поле для комментариев
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment", // Связь с моделью комментариев
+      },
+    ],
   },
   {
     timestamps: true,

@@ -160,11 +160,17 @@ export const update = async (req, res) => {
       });
     }
 
+    const shortText =
+      req.body.text.length > 200
+        ? req.body.text.substring(0, 200) + " ..."
+        : req.body.text;
+
     await PostModel.updateOne(
       { _id: postId },
       {
         title: req.body.title,
         text: req.body.text,
+        shortText,
         imageUrl: req.body.imageUrl,
         user: req.body.user,
         tags: req.body.tags,

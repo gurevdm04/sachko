@@ -1,4 +1,5 @@
 import CommentModel from "../models/Comment.js";
+import PostModel from "../models/Post.js";
 
 export const getCommentsByPost = async (req, res) => {
   try {
@@ -30,7 +31,11 @@ export const addComment = async (req, res) => {
       post: postId,
     });
 
-    await comment.save();
+    const savedComment = await comment.save();
+
+    await PostModel.findByIdAndUpdate(postId, {
+      $push: { comments: savedComment._id },
+    });
 
     res.json(comment);
   } catch (err) {
