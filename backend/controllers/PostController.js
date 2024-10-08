@@ -5,7 +5,10 @@ import jwt from "jsonwebtoken";
 export const getAll = async (req, res) => {
   try {
     const posts = await PostModel.find()
-      .populate("user")
+      .populate({
+        path: "user",
+        select: "fullName avatarUrl", // Указываем только нужные поля
+      })
       .sort({ createdAt: -1 })
       .exec();
 
@@ -22,7 +25,10 @@ export const getAll = async (req, res) => {
 export const getPopular = async (req, res) => {
   try {
     const posts = await PostModel.find()
-      .populate("user")
+      .populate({
+        path: "user",
+        select: "fullName avatarUrl", // Указываем только нужные поля
+      })
       .sort({ viewsCount: -1 })
       .exec();
 
@@ -42,7 +48,10 @@ export const getPhoto = async (req, res) => {
     const postsWithPhotos = await PostModel.find({
       imageUrl: { $exists: true, $ne: "" },
     })
-      .populate("user")
+      .populate({
+        path: "user",
+        select: "fullName avatarUrl", // Указываем только нужные поля
+      })
       .sort({ viewsCount: -1 })
       .exec();
 

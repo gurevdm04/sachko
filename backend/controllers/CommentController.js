@@ -6,7 +6,10 @@ export const getCommentsByPost = async (req, res) => {
     const postId = req.params.postId;
 
     const comments = await CommentModel.find({ post: postId })
-      .populate("user") // Чтобы подтянуть информацию о пользователе
+      .populate({
+        path: "user",
+        select: "fullName avatarUrl", // Указываем только нужные поля
+      }) // Чтобы подтянуть информацию о пользователе
       .exec();
 
     res.json(comments);

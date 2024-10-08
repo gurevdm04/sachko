@@ -18,7 +18,6 @@ import {
   PostController,
   CommentController,
 } from "./controllers/index.js";
-import { PATH } from "./constants/constants.js";
 
 mongoose
   .connect(
@@ -41,7 +40,14 @@ const storage = multer.diskStorage({
     cb(null, "uploads");
   },
   filename: (_, file, cb) => {
-    cb(null, file.originalname);
+    // Генерируем уникальное имя файла с помощью времени
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+
+    // Получаем расширение файла (например, .jpg, .png)
+    const extension = file.originalname.split(".").pop();
+
+    // Устанавливаем новое имя файла: имя + уникальный суффикс + расширение
+    cb(null, `${file.originalname.split(".")[0]}-${uniqueSuffix}.${extension}`);
   },
 });
 
@@ -79,8 +85,11 @@ app.patch(
 
 // UPLOAD
 app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
+  const fileName = req.file.filename;
+  console.log(fileName);
+
   res.json({
-    url: `/uploads/${req.file.originalname}`,
+    url: `/uploads/${fileName}`,
   });
 });
 
@@ -109,10 +118,14 @@ app.patch(
 app.get("/comments/:postId", CommentController.getCommentsByPost);
 app.post("/comments", checkAuth, CommentController.addComment);
 
-app.listen(4444, (err) => {
+const PORT = 4444;
+const HOST = "localhost";
+
+app.listen(PORT, HOST, (err) => {
   if (err) {
     return console.log(err);
   }
 
-  console.log("___!Server OK!___");
+  console.log(`___!Server OK!___`);
+  console.log(`Server is running at http://${HOST}:${PORT}`);
 });
