@@ -1,10 +1,15 @@
-import style from "./ProfileData.module.scss";
+// Внешние библиотеки
+import { Link } from "react-router-dom";
 import { IoMdExit } from "react-icons/io";
 import { GoPencil } from "react-icons/go";
+
+// Локальные модули
+import { Path } from "../../constants/constants";
 import { logout } from "../../redux/slices/auth";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { Link } from "react-router-dom";
-import { Path } from "../../constants/constants";
+
+// Стили
+import style from "./ProfileData.module.scss";
 
 export const ProfileData = () => {
   const dispatch = useAppDispatch();

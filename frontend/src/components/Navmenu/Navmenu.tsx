@@ -1,16 +1,21 @@
-import { Navitem } from "../Navitem/Navitem";
-import style from "./Navmenu.module.scss";
+// Внешние библиотеки
+import { FaFireAlt } from "react-icons/fa";
+import { IoMdPhotos } from "react-icons/io";
 import { GoHomeFill } from "react-icons/go";
 import { BsFillFileEarmarkPostFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
+
+// Локальные модули
+import { Profile } from "../Profile/Profile";
 import { Path } from "../../constants/constants";
 import { useAppSelector } from "../../redux/hooks";
 import { selectIsAuth } from "../../redux/slices/auth";
-import { Profile } from "../Profile/Profile";
-import { FaFireAlt } from "react-icons/fa";
-import { IoMdPhotos } from "react-icons/io";
+import { Navitem } from "../Navitem/Navitem";
 
-export const Navmenu: React.FC<any> = ({ toggle }) => {
+// Стили
+import style from "./Navmenu.module.scss";
+
+export const Navmenu = () => {
   const isAuth = useAppSelector(selectIsAuth);
 
   return (

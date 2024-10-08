@@ -1,8 +1,13 @@
-import SimpleMDE from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
+// Внешние библиотеки
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import axios from "./../../axios";
 import { useNavigate, useParams } from "react-router-dom";
+import SimpleMDE from "react-simplemde-editor";
+
+// Локальные модули
+import axios from "./../../axios";
+
+// Стили
+import "easymde/dist/easymde.min.css";
 import style from "./WritePost.module.scss";
 
 export const WritePost = () => {

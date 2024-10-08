@@ -1,5 +1,8 @@
+// Внешние библиотеки
 import { Route, Routes } from "react-router-dom";
-import style from "./App.module.scss";
+import { useEffect } from "react";
+
+// Локальные модули
 import { Header } from "./components/Header/Header";
 import { MainWrapper } from "./components/MainWrapper/MainWrapper";
 import { Sidebar } from "./components/Sidebar/Sidebar";
@@ -9,12 +12,14 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
 import { PopularPage } from "./pages/PopularPage/PopularPage";
 import { YouPostPage } from "./pages/YouPostPage/YouPostPage";
-import { useEffect } from "react";
 import { FullPostPage } from "./pages/FullPostPage/FullPostPage";
 import { useAppDispatch } from "./redux/hooks";
 import { fetchAuthMe } from "./redux/slices/auth";
 import { ProfileEdit } from "./components/ProfileEdit/ProfileEdit";
 import { PhotoPostsPage } from "./pages/PhotoPostsPage/PhotoPostsPage";
+
+// Стили
+import style from "./App.module.scss";
 
 function App() {
   const dispatch = useAppDispatch();

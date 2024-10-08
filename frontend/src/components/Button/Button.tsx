@@ -1,3 +1,4 @@
+// Стили
 import style from "./Button.module.scss";
 
 type ButtonProps = {

@@ -1,9 +1,12 @@
+// Внешние библиотеки
 import { useCallback, useMemo, useRef, useState } from "react";
 import SimpleMdeReact from "react-simplemde-editor";
-import axios from "./../../axios";
 import { useNavigate } from "react-router-dom";
-// import { useAppSelector } from "../../redux/hooks";
-// import { selectIsAuth } from "../../redux/slices/auth";
+
+// Локальные модули
+import axios from "./../../axios";
+
+// Стили
 
 export const EditPostPage = () => {
   const navigate = useNavigate();
@@ -14,7 +17,6 @@ export const EditPostPage = () => {
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const inputFileRef = useRef<any>(null);
-
 
   const handleChangeFile = async (event: any) => {
     try {

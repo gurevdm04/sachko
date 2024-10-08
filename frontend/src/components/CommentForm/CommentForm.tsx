@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from "./../../axios";
-import style from "./CommentForm.module.scss";
+// Внешние библиотеки
+import { useState } from "react";
+
+// Локальные модули
 import { fetchComments } from "../../redux/slices/comments";
 import { useAppDispatch } from "../../redux/hooks";
+import axios from "./../../axios";
+
+// Стили
+import style from "./CommentForm.module.scss";
 
 const CommentForm = ({ postId }: { postId: any }) => {
   const [text, setText] = useState("");

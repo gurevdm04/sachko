@@ -1,6 +1,11 @@
-import style from "./PostList.module.scss";
-import { PostCard } from "../PostCard/PostCard";
+// Внешние библиотеки
 import ContentLoader from "react-content-loader";
+
+// Локальные модули
+import { PostCard } from "../PostCard/PostCard";
+
+// Стили
+import style from "./PostList.module.scss";
 
 interface PostListProps {
   isPostLoading: boolean;

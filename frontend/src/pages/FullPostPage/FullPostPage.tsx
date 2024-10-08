@@ -1,15 +1,19 @@
-import axios from "./../../axios";
+// Внешние библиотеки
+import { FaEye } from "react-icons/fa";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+
+// Локальные модули
+import axios from "./../../axios";
 import CommentForm from "../../components/CommentForm/CommentForm";
 import CommentsList from "../../components/CommentsList/CommentsList";
-
-import style from "./FullPostPage.module.scss";
-import { FaEye } from "react-icons/fa";
 import { selectIsAuth } from "../../redux/slices/auth";
 import { useAppSelector } from "../../redux/hooks";
-import { IoArrowBackCircleSharp } from "react-icons/io5";
+
+// Стили
+import style from "./FullPostPage.module.scss";
 
 export const FullPostPage = () => {
   const navigate = useNavigate();

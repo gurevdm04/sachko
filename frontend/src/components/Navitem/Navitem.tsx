@@ -1,8 +1,13 @@
+// Внешние библиотеки
 import { NavLink } from "react-router-dom";
-import style from "./Navitem.module.scss";
 import { IconType } from "react-icons";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+
+// Локальные модули
+import { useAppDispatch } from "../../redux/hooks";
 import { toogle } from "../../redux/slices/open";
+
+// Стили
+import style from "./Navitem.module.scss";
 
 type NavitemProps = {
   text: string;

@@ -1,4 +1,7 @@
+// Внешние библиотеки
 import { configureStore } from "@reduxjs/toolkit";
+
+// Локальные модули
 import { postsReducer } from "./slices/posts";
 import { authReducer } from "./slices/auth";
 import { commentsReducer } from "./slices/comments";

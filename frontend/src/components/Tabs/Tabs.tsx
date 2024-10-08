@@ -1,6 +1,8 @@
+// Внешние библиотеки
 import { Tab, Tabs as TabsWrap, TabList, TabPanel } from "react-tabs";
+
+// Стили
 import "react-tabs/style/react-tabs.css";
-// import { PostCard } from "../PostCard/PostCard";
 import style from "./Tabs.module.scss";
 
 export const Tabs = () => {
@@ -20,9 +22,7 @@ export const Tabs = () => {
         {/* <PostCard /> */}
         {/* <PostCard /> */}
       </TabPanel>
-      <TabPanel>
-        {/* <PostCard /> */}
-      </TabPanel>
+      <TabPanel>{/* <PostCard /> */}</TabPanel>
     </TabsWrap>
   );
 };

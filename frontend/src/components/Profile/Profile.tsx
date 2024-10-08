@@ -1,10 +1,13 @@
-import { FiMoreHorizontal } from "react-icons/fi";
+// Внешние библиотеки
+import { Link } from "react-router-dom";
 
-import style from "./Profile.module.scss";
+// Локальные модули
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Path } from "../../constants/constants";
-import { Link } from "react-router-dom";
 import { toogle } from "../../redux/slices/open";
+
+// Стили
+import style from "./Profile.module.scss";
 
 export const Profile = () => {
   const { fullName, avatarUrl } = useAppSelector((state) => state.auth.data);

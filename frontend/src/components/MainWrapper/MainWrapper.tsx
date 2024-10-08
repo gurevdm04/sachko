@@ -1,3 +1,4 @@
+// Стили
 import style from "./Main.module.scss";
 
 type MainWrapperProps = {

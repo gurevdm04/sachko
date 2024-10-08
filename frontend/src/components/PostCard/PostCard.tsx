@@ -1,13 +1,18 @@
-import style from "./PostCard.module.scss";
-import { Link } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import { useAppDispatch } from "../../redux/hooks";
-import { fetchRemovePost } from "../../redux/slices/posts";
-import { formatDate } from "../../utils";
+// Внешние библиотеки
 import { FaPen } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 import { FaComments } from "react-icons/fa";
+
+// Локальные модули
+import { useAppDispatch } from "../../redux/hooks";
+import { fetchRemovePost } from "../../redux/slices/posts";
+import { formatDate } from "../../utils";
+
+// Стили
+import style from "./PostCard.module.scss";
 
 type PostCard = {
   id: string;

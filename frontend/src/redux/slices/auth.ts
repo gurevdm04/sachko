@@ -1,4 +1,7 @@
+// Внешние библиотеки
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
+// Локальные модули
 import axios from "./../../axios";
 
 export const fetchAuth = createAsyncThunk(

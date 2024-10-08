@@ -1,4 +1,7 @@
+// Внешние библиотеки
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
+// Локальные модули
 import axios from "./../../axios";
 
 export const fetchComments = createAsyncThunk(
@@ -8,20 +11,6 @@ export const fetchComments = createAsyncThunk(
     return data;
   }
 );
-
-// const handleSubmit = async (e: React.FormEvent) => {
-//   e.preventDefault();
-
-//   try {
-//     const response = await axios.post("/comments", {
-//       postId,
-//       text,
-//     });
-//     console.log("Комментарий добавлен:", response.data);
-//   } catch (err) {
-//     console.error("Ошибка при добавлении комментария:", err);
-//   }
-// };
 
 interface AuthStaet {
   data: any[];

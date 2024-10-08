@@ -1,14 +1,16 @@
-import SimpleMDE from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
-import { useCallback, useMemo } from "react";
-import axios from "./../../axios";
+// Внешние библиотеки
 import { useNavigate, useParams } from "react-router-dom";
-
 import { useEffect, useRef, useState } from "react";
-import style from "./ProfileEdit.module.scss";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
+
+// Локальные модули
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchAuthMe } from "../../redux/slices/auth";
-import { IoArrowBackCircleSharp } from "react-icons/io5";
+import axios from "./../../axios";
+
+// Стили
+import style from "./ProfileEdit.module.scss";
+import "easymde/dist/easymde.min.css";
 
 export const ProfileEdit = () => {
   const [name, setName] = useState("");

@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
-import axios from "./../../axios";
-import style from "./CommentsList.module.scss";
+// Внешние библиотеки
+import { useEffect } from "react";
+
+// Локальные модули
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchComments } from "../../redux/slices/comments";
+
+// Стили
+import style from "./CommentsList.module.scss";
 
 const CommentsList = ({ postId }: { postId: any }) => {
   const dispatch = useAppDispatch();

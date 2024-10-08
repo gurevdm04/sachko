@@ -1,18 +1,12 @@
+// Внешние библиотеки
 import { useLocation } from "react-router-dom";
-import style from "./Header.module.scss";
+
+// Локальные модули
 import { Path } from "../../constants/constants";
 import { getFirstWordFromPath } from "../../utils";
 
-// export enum Path {
-//   Home = "/",
-//   Popular = "/popular",
-//   YourPosts = "/youposts",
-//   Profile = "/profile",
-//   FullPost = "/post/:id",
-//   EditPost = "/post/:id/edit",
-//   EditProfile = "/profile/edit",
-//   PhotoPosts = "/photo",
-// }
+// Стили
+import style from "./Header.module.scss";
 
 const text = {
   [getFirstWordFromPath(Path.Home)]: "Домашняя",

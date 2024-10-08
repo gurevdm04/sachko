@@ -1,7 +1,12 @@
+// Внешние библиотеки
 import { useState } from "react";
-import style from "./Auth.module.scss";
+
+// Локальные модули
 import { Login } from "./Login/Login";
 import { Registration } from "./Registration/Registration";
+
+// Стили
+import style from "./Auth.module.scss";
 
 export const Auth = () => {
   const [status, setStatus] = useState<"login" | "register">("login");

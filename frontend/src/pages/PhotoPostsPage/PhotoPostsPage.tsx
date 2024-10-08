@@ -1,7 +1,12 @@
+// Внешние библиотеки
 import { useEffect } from "react";
+
+// Локальные модули
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPhotoPosts } from "../../redux/slices/posts";
 import { PostList } from "../../components/PostList/PostList";
+
+// Стили
 
 export const PhotoPostsPage = () => {
   const dispatch = useAppDispatch();

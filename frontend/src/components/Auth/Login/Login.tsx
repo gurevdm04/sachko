@@ -1,8 +1,13 @@
+// Внешние библиотеки
 import { useForm } from "react-hook-form";
-import style from "./../Auth.module.scss";
+import { Navigate } from "react-router-dom";
+
+// Локальные модули
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { fetchAuth, selectIsAuth } from "../../../redux/slices/auth";
-import { Navigate } from "react-router-dom";
+
+// Стили
+import style from "./../Auth.module.scss";
 
 export const Login = () => {
   const isAuth = useAppSelector(selectIsAuth);

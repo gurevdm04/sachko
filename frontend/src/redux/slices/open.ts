@@ -1,3 +1,4 @@
+// Внешние библиотеки
 import { createSlice } from "@reduxjs/toolkit";
 
 interface CounterState {

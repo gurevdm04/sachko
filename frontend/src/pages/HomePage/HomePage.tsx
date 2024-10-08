@@ -1,7 +1,12 @@
+// Внешние библиотеки
 import { useEffect } from "react";
+
+// Локальные модули
 import { PostList } from "../../components/PostList/PostList";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPosts } from "../../redux/slices/posts";
+
+// Стили
 
 export const HomePage = () => {
   const dispatch = useAppDispatch();
