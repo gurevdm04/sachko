@@ -118,14 +118,9 @@ app.patch(
 app.get("/comments/:postId", CommentController.getCommentsByPost);
 app.post("/comments", checkAuth, CommentController.addComment);
 
-const PORT = 4444;
-const HOST = "localhost";
-
-app.listen(PORT, HOST, (err) => {
+app.listen(4444, (err) => {
   if (err) {
     return console.log(err);
   }
-
   console.log(`___!Server OK!___`);
-  console.log(`Server is running at http://${HOST}:${PORT}`);
 });
