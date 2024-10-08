@@ -40,7 +40,7 @@ const CommentForm = ({ postId }: { postId: any }) => {
         onChange={(e) => setText(e.target.value)}
         placeholder="Добавьте комментарий"
       />
-      <button className={style.btn} type="submit">
+      <button disabled={!text} className={style.btn} type="submit">
         Отправить
       </button>
     </form>

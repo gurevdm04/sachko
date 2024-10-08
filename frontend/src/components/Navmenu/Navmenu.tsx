@@ -4,6 +4,7 @@ import { IoMdPhotos } from "react-icons/io";
 import { GoHomeFill } from "react-icons/go";
 import { BsFillFileEarmarkPostFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
+import ContentLoader from "react-content-loader";
 
 // Локальные модули
 import { Profile } from "../Profile/Profile";
@@ -35,6 +36,35 @@ export const Navmenu = () => {
       )}
 
       {isAuth && <Profile />}
+
+      <ProfileLoader />
     </ul>
   );
 };
+
+const ProfileLoader = () => {
+  const isLoaded = useAppSelector((state) => state.auth.status);
+
+  if (isLoaded === "loading") {
+    return (
+      <div className={style.loader}>
+        <Loader />
+      </div>
+    );
+  }
+
+  return null;
+};
+
+const Loader = () => (
+  <ContentLoader
+    speed={2}
+    width={225}
+    height={75}
+    viewBox="0 0 225 75"
+    backgroundColor="#cbc8c8"
+    foregroundColor="#ecebeb"
+  >
+    <rect x="0" y="0" rx="50" ry="50" width="225" height="75" />
+  </ContentLoader>
+);

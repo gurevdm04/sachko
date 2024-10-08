@@ -2,6 +2,8 @@
   border: rgb(121, 121, 121) 1px solid;
   border-radius: 10px;
   margin-bottom: 10px;
+  max-height: 300px;
+  overflow: auto;
 }
 .commentWrap {
   // padding: 10px;
@@ -12,4 +14,11 @@
 .text {
   padding: 10px;
   margin-left: 10px;
+}
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  height: 300px;
 }

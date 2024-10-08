@@ -1,5 +1,6 @@
 // Внешние библиотеки
 import { useEffect } from "react";
+import GridLoader from "react-spinners/GridLoader";
 
 // Локальные модули
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -11,11 +12,20 @@ import style from "./CommentsList.module.scss";
 const CommentsList = ({ postId }: { postId: any }) => {
   const dispatch = useAppDispatch();
   const comments = useAppSelector((state) => state.comments.data);
-  console.log(comments);
+  const isLoading = useAppSelector((state) => state.comments.status);
+  console.log("isLoading", isLoading);
 
   useEffect(() => {
     dispatch(fetchComments(postId));
   }, []);
+
+  if (isLoading === "loading") {
+    return (
+      <div className={style.loader}>
+        <GridLoader size={30} />
+      </div>
+    );
+  }
 
   return (
     <>

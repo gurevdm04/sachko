@@ -11,6 +11,7 @@ import axios from "./../../axios";
 // Стили
 import style from "./ProfileEdit.module.scss";
 import "easymde/dist/easymde.min.css";
+import { removeDomain } from "../../utils";
 
 export const ProfileEdit = () => {
   const [name, setName] = useState("");
@@ -60,7 +61,7 @@ export const ProfileEdit = () => {
     try {
       const fields = {
         fullName: name,
-        imageUrl,
+        imageUrl: imageUrl === "" ? removeDomain(data.avatarUrl) : imageUrl,
       };
       console.log(fields);
 

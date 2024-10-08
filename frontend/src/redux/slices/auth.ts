@@ -25,12 +25,12 @@ export const fetchAuthMe = createAsyncThunk("auth/fetchAuthMe", async () => {
   return data;
 });
 
-interface AuthStaet {
+interface AuthState {
   data: null | any;
   status: "loading" | "loaded" | "error";
 }
 
-const initialState: AuthStaet = {
+const initialState: AuthState = {
   data: null,
   status: "loading",
 };
@@ -78,7 +78,6 @@ export const authSlice = createSlice({
     });
     builder.addCase(fetchRegister.fulfilled, (state, action) => {
       state.status = "loaded";
-
       state.data = action.payload;
     });
     builder.addCase(fetchRegister.rejected, (state) => {

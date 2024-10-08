@@ -1,4 +1,5 @@
 // Внешние библиотеки
+import ContentLoader from "react-content-loader";
 import { FaEye } from "react-icons/fa";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { useEffect, useState } from "react";
@@ -43,7 +44,7 @@ export const FullPostPage = () => {
   }, []);
 
   if (isLoading) {
-    return "Loadng...";
+    return <Loader />;
   }
 
   return (
@@ -67,3 +68,19 @@ export const FullPostPage = () => {
     </div>
   );
 };
+
+const Loader = () => (
+  <ContentLoader
+    speed={2}
+    width={"100%"}
+    height={400}
+    viewBox="0 0 590 400"
+    backgroundColor="#cbc8c8"
+    foregroundColor="#ecebeb"
+  >
+    <rect x="0" y="0" rx="10" ry="10" width="192" height="50" />
+    <rect x="0" y="62" rx="10" ry="10" width="590" height="117" />
+    <rect x="-1" y="195" rx="10" ry="10" width="590" height="203" />
+    <rect x="540" y="0" rx="10" ry="10" width="50" height="50" />
+  </ContentLoader>
+);
