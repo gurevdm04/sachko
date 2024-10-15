@@ -4,25 +4,25 @@ import { useEffect } from "react";
 // Локальные модули
 import { PostList } from "../../components/PostList/PostList";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { fetchPopularPosts } from "../../redux/slices/posts";
+import { fetchPosts } from "../../redux/slices/posts";
 
 // Стили
 
 export const PopularPage = () => {
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.auth.data);
-  const { postsPopular } = useAppSelector((state) => state.posts);
+  const { posts } = useAppSelector((state) => state.posts);
 
-  const isPostLoading = postsPopular.status === "loading";
+  const isPostLoading = posts.status === "loading";
 
   useEffect(() => {
-    dispatch(fetchPopularPosts());
+    dispatch(fetchPosts("popular"));
   }, []);
   return (
     <>
       <PostList
         isPostLoading={isPostLoading}
-        posts={postsPopular}
+        posts={posts}
         userData={userData}
       />
     </>

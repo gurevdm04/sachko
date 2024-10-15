@@ -16,7 +16,7 @@ export const HomePage = () => {
   const isPostLoading = posts.status === "loading";
 
   useEffect(() => {
-    dispatch(fetchPosts());
+    dispatch(fetchPosts(''));
   }, []);
 
   return (
