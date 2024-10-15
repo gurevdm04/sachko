@@ -69,7 +69,7 @@ export const Registration = () => {
       {errors.password?.message ? <p>{errors.password?.message}</p> : null}
 
       <button disabled={!isValid} type="submit">
-        логин
+        Зарегистрироваться
       </button>
     </form>
   );

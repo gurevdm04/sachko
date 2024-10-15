@@ -105,7 +105,12 @@ app.post(
   handleValidationErrors,
   PostController.create
 );
-app.delete("/posts/:id", checkAuth, PostController.remove);
+app.delete(
+  "/posts/:id",
+  checkAuth,
+  handleValidationErrors,
+  PostController.remove
+);
 app.patch(
   "/posts/:id",
   checkAuth,

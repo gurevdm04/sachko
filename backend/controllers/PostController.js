@@ -94,11 +94,9 @@ export const getOne = async (req, res) => {
 export const create = async (req, res) => {
   try {
     const shortText =
-      req.body.text.length > 200
-        ? req.body.text.substring(0, 200) + " ..."
+      req.body.text.length > 100
+        ? req.body.text.substring(0, 100) + " ..."
         : req.body.text;
-
-    console.log(req.body.imageUrl);
 
     const doc = new PostModel({
       title: req.body.title,
@@ -124,6 +122,21 @@ export const create = async (req, res) => {
 export const remove = async (req, res) => {
   try {
     const postId = req.params.id;
+    const post = await PostModel.findById(postId);
+
+    const secretKey = "secret123";
+    const userUpdateId = jwt.verify(
+      req.headers.authorization.replace(/Bearer\s?/, ""),
+      secretKey
+    )._id;
+
+    const userOwnerPostId = post.user.toString();
+
+    if (userUpdateId !== userOwnerPostId) {
+      return res.status(403).json({
+        message: "Нет прав на обновление этого поста",
+      });
+    }
 
     const doc = await PostModel.findByIdAndDelete({ _id: postId });
 

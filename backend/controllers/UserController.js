@@ -120,7 +120,7 @@ export const updateAuth = async (req, res) => {
 
     // Новые данные для обновления профиля
     const { fullName, imageUrl } = req.body;
-    console.log(imageUrl);
+
 
     const imagePath =
       imageUrl === ""
@@ -144,7 +144,7 @@ export const updateAuth = async (req, res) => {
 
     res.json({
       success: true,
-      user: updatedUser, // Возвращаем обновлённого пользователя
+      user: updatedUser,
     });
   } catch (err) {
     console.log(err);

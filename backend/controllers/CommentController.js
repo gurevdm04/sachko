@@ -1,4 +1,4 @@
-import CommentModel from "../models/Comment.js";
+import CommentModel from "../models/Comment.js"; 
 import PostModel from "../models/Post.js";
 
 export const getCommentsByPost = async (req, res) => {
@@ -23,8 +23,6 @@ export const getCommentsByPost = async (req, res) => {
 
 export const addComment = async (req, res) => {
   try {
-    console.log(req.body);
-
     const { postId, text } = req.body;
 
     // Создаем новый комментарий
