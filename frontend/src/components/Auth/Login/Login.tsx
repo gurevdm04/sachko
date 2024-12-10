@@ -54,6 +54,7 @@ export const Login = () => {
         className={style.input}
         type="password"
         placeholder="****"
+        min={5}
         {...register("password", { required: "Введите пароль", min: 5 })}
       />
       {errors.password?.message ? <p>{errors.password?.message}</p> : null}
